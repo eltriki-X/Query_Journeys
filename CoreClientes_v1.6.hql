@@ -57,7 +57,6 @@ with clientes as (
             else telefono_fijo                      
         end                                          as tfno_fijo,
         fc_fallecimiento_disolucion                  as fecha_fallecimiento,
-        id_sexo                                      as sexo,
         row_number() over(partition by id_cliente order by fecha_derivado desc) as rn
     from DERIVATIVES_GENERIC.BGDV_DMCLIENTES_D
     where DT=201910
@@ -94,7 +93,6 @@ add_detail_customer02 as (
 
 select 
     a.idcliente,
-    a.sexo,
     a.prefijo_mv,
     a.tfno_movil,
     a.tfno_fijo,
